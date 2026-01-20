@@ -1,11 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useTheme } from "next-themes";
 import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    const [mounted, setMounted] = useState(false);
+    const { resolvedTheme } = useTheme();
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -15,11 +23,15 @@ export default function Header() {
         setIsMobileMenuOpen(false);
     };
 
+    const logoSrc = mounted
+        ? (resolvedTheme === "dark" ? "/assets/images/logo-dark.png" : "/assets/images/logo-light.png")
+        : "/assets/images/logo.png";
+
     return (
         <header className="fixed top-0 left-0 w-full h-20 bg-background/80 backdrop-blur-md z-50 border-b border-border">
             <div className="container h-full flex justify-between items-center">
                 <Link href="/" className="flex items-center gap-2">
-                    <img src="/assets/images/logo.png" alt="Logo" className="w-[80px] h-[80px] object-cover rounded-full" />
+                    <img src={logoSrc} alt="Logo" className="w-[80px] h-[80px] object-cover" />
                 </Link>
 
                 {/* Desktop Navigation */}

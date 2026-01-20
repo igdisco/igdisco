@@ -15,11 +15,11 @@ export const metadata: Metadata = {
     "DevOps Solutions - Accelerate your software delivery with our expert DevOps services. Automate, scale, and innovate faster than ever.",
   keywords: ["DevOps", "Software Delivery", "Cloud Computing", "Automation", "CI/CD", "Infrastructure as Code"],
   authors: [{ name: "DevOps Solutions Team" }],
-  metadataBase: new URL("https://example.com"), // Replace with actual domain when deployed
+  metadataBase: new URL("https://igdisco.com"), // Replace with actual domain when deployed
   openGraph: {
     title: "DevOps Solutions | Accelerate Your Growth",
     description: "Accelerate your software delivery with our expert DevOps services.",
-    url: "https://example.com",
+    url: "https://igdisco.com",
     siteName: "DevOps Solutions",
     locale: "en_US",
     type: "website",
@@ -37,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={outfit.variable}>
         <Providers>{children}</Providers>
       </body>

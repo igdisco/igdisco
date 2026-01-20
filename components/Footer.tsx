@@ -1,13 +1,29 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useTheme } from "next-themes";
 
 export default function Footer() {
+
+    const [mounted, setMounted] = useState(false);
+    const { resolvedTheme } = useTheme();
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    const logoSrc = mounted
+        ? (resolvedTheme === "dark" ? "/assets/images/logo-dark.png" : "/assets/images/logo-light.png")
+        : "/assets/images/logo.png";
+
     return (
         <footer className="bg-secondary/5 pt-20 pb-10 border-t border-border">
             <div className="container">
                 <div className="grid md:grid-cols-4 gap-12 mb-16">
                     <div className="col-span-1">
-                        <Link href="/" className="text-2xl font-bold text-primary mb-4 block">
-                            IGDisco
+                        <Link href="/" className="flex items-center justify-center w-full mb-4">
+                            <img src={logoSrc} alt="Logo" className="w-[60%] h-auto object-contain" />
                         </Link>
                         <p className="text-secondary leading-relaxed">
                             Empowering teams to build better software, faster.
