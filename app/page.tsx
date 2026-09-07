@@ -1,33 +1,33 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Features from "@/components/Features";
-import Services from "@/components/Services";
-import Team from "@/components/Team";
-import Contact from "@/components/Contact";
-import CTA from "@/components/CTA";
-import Footer from "@/components/Footer";
 import TechStack from "@/components/TechStack";
+import Services from "@/components/Services";
+import Capabilities from "@/components/Capabilities";
+import Features from "@/components/Features";
 import Process from "@/components/Process";
+import Team from "@/components/Team";
 import FAQ from "@/components/FAQ";
-import ScrollAnimation from "@/components/ScrollAnimation";
-
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
+      <a className="skip-link" href="#main-content">
+        Skip to content
+      </a>
       <Header />
-      <main>
+      <main id="main-content">
         <Hero />
-        <Features />
         <TechStack />
         <Services />
+        <Capabilities />
+        <Features />
         <Process />
         <Team />
         <FAQ />
         <Contact />
-        <CTA />
       </main>
       <Footer />
-      <ScrollAnimation />
     </>
   );
 }

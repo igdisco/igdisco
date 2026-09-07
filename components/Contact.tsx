@@ -1,107 +1,144 @@
 "use client";
-
-import { FormEvent, useState } from "react";
-
+import { useState, type FormEvent } from "react";
+import { ArrowUpRight, CheckCircle2, LoaderCircle } from "lucide-react";
 export default function Contact() {
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [isSuccess, setIsSuccess] = useState(false);
-
-    const handleSubmit = async (e: FormEvent) => {
-        e.preventDefault();
-        setIsSubmitting(true);
-
-        // Simulate API call
-        await new Promise((resolve) => setTimeout(resolve, 1500));
-
-        setIsSubmitting(false);
-        setIsSuccess(true);
-        alert("Form submitted successfully!");
-
-        // Reset success message after 3 seconds
-        setTimeout(() => setIsSuccess(false), 3000);
-    };
-
-    return (
-        <section id="contact" className="py-32">
-            <div className="container max-w-3xl">
-                <div className="text-center mb-12">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4">Schedule a Meeting</h2>
-                    <p className="text-xl text-secondary">
-                        Let&apos;s discuss how we can help your business grow.
-                    </p>
-                </div>
-                <div className="p-8 md:p-12 rounded-3xl bg-card/40 backdrop-blur-sm border border-border/50">
-                    <form className="space-y-6" onSubmit={handleSubmit}>
-                        <div>
-                            <label htmlFor="name" className="block text-sm font-semibold mb-2">Full Name</label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                placeholder="John Doe"
-                                required
-                                className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor="email" className="block text-sm font-semibold mb-2">Email Address</label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                placeholder="john@example.com"
-                                required
-                                className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                            />
-                        </div>
-                        <div className="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <label htmlFor="meeting-type" className="block text-sm font-semibold mb-2">Meeting Type</label>
-                                <select
-                                    id="meeting-type"
-                                    name="meeting-type"
-                                    className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                                >
-                                    <option value="online">Online Meeting (Zoom/Meet)</option>
-                                    <option value="in-person">In-Person Meeting</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label htmlFor="date" className="block text-sm font-semibold mb-2">Preferred Date</label>
-                                <input
-                                    type="date"
-                                    id="date"
-                                    name="date"
-                                    required
-                                    className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                                />
-                            </div>
-                        </div>
-                        <div>
-                            <label htmlFor="message" className="block text-sm font-semibold mb-2">Message</label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                rows={5}
-                                placeholder="Tell us about your project..."
-                                className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none"
-                            ></textarea>
-                        </div>
-                        <button
-                            type="submit"
-                            disabled={isSubmitting}
-                            className="w-full px-8 py-4 rounded-xl bg-primary text-white font-bold text-lg hover:bg-primary/90 transition-all shadow-xl shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed"
-                        >
-                            {isSubmitting ? "Sending..." : "Schedule Meeting"}
-                        </button>
-                        {isSuccess && (
-                            <p className="text-center text-green-500 font-semibold">
-                                Message sent successfully!
-                            </p>
-                        )}
-                    </form>
-                </div>
+  const [state, setState] = useState<"idle" | "sending" | "success" | "error">(
+    "idle",
+  );
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    setState("sending");
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(new FormData(form))),
+      });
+      if (!response.ok) throw new Error("Request could not be delivered");
+      setState("success");
+      form.reset();
+    } catch {
+      setState("error");
+    }
+  }
+  return (
+    <section id="contact" className="section contact-section">
+      <div className="container contact-grid">
+        <div className="contact-copy">
+          <span className="eyebrow">07 / LET’S BUILD WHAT’S NEXT</span>
+          <h2>
+            Keep your business
+            <br />
+            in rhythm.{" "}
+            <br />
+            <span>Let’s talk IT.</span>
+          </h2>
+          <p>
+            Tell us where you are and where you want to go. We’ll work out the
+            next step together.
+          </p>
+          <div className="contact-points">
+            <span>
+              <CheckCircle2 size={17} /> A conversation with our engineers
+            </span>
+            <span>
+              <CheckCircle2 size={17} /> Advice grounded in your business
+            </span>
+            <span>
+              <CheckCircle2 size={17} /> A clear path forward
+            </span>
+          </div>
+          <span className="contact-signoff">
+            YOU ENJOY THE NIGHT. WE TAKE CARE OF IT.
+          </span>
+        </div>
+        <div className="contact-form-panel">
+          <h3>Let’s hear what you’re building.</h3>
+          <p>A few details to get us started.</p>
+          <form onSubmit={handleSubmit}>
+            <fieldset disabled={state === "sending"}>
+              <div className="form-row">
+                <label htmlFor="name">
+                  Full name <span>*</span>
+                  <input
+                    id="name"
+                    name="name"
+                    autoComplete="name"
+                    required
+                    maxLength={120}
+                    placeholder="Your name"
+                  />
+                </label>
+                <label htmlFor="email">
+                  Work email <span>*</span>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    required
+                    maxLength={254}
+                    placeholder="you@company.com"
+                  />
+                </label>
+              </div>
+              <div className="form-row">
+                <label htmlFor="meeting-type">
+                  Meeting type
+                  <select name="meetingType" id="meeting-type">
+                    <option value="online">Online meeting</option>
+                    <option value="in-person">In-person meeting</option>
+                  </select>
+                </label>
+                <label htmlFor="date">
+                  Preferred date <span>*</span>
+                  <input type="date" name="date" id="date" required />
+                </label>
+              </div>
+              <label htmlFor="message">
+                What can we help with?
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  maxLength={5000}
+                  placeholder="A little about your project, your challenges, or your next big idea…"
+                />
+              </label>
+              <button type="submit" className="button form-submit">
+                {state === "sending" ? (
+                  <>
+                    Sending request <LoaderCircle size={17} className="spin" />
+                  </>
+                ) : (
+                  <>
+                    Request a consultation <ArrowUpRight size={18} />
+                  </>
+                )}
+              </button>
+            </fieldset>
+            <p className="form-privacy">
+              By submitting, you agree to our{" "}
+              <a href="/privacy-policy">Privacy Policy</a>.
+            </p>
+            <div aria-live="polite">
+              {state === "success" && (
+                <p className="form-message success">
+                  Thank you. Your request has been sent. Our team will follow up
+                  to confirm a time.
+                </p>
+              )}
+              {state === "error" && (
+                <p className="form-message error" role="alert">
+                  We couldn’t send your request right now. Your details are
+                  still here. Please try again later.
+                </p>
+              )}
             </div>
-        </section>
-    );
+          </form>
+        </div>
+      </div>
+    </section>
+  );
 }
