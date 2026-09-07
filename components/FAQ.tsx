@@ -1,69 +1,73 @@
-"use client";
-
-import { useState } from "react";
-
+import { ArrowUpRight, Plus } from "lucide-react";
+const faqs = [
+  {
+    question: "Which cloud platforms do you work with?",
+    answer:
+      "We are a cloud service partner across AWS, Microsoft Azure, and Huawei Cloud, including hybrid and multi-cloud environments. That covers compute, storage, and security on each, plus high availability, auto-scaling, and cost optimization. We help you choose an approach that fits your existing systems and business needs.",
+  },
+  {
+    question: "Do you manage Kubernetes clusters?",
+    answer:
+      "Yes. We handle full cluster deployment for containerized workloads on-premise and in the cloud (AWS EKS, GKE, AKS), then take on monitoring, scaling, and troubleshooting. Our managed service covers updates, security patching, resource optimization, and automated backups.",
+  },
+  {
+    question: "Can you work with our existing engineering team?",
+    answer:
+      "Yes. We work alongside your team, starting with an assessment of your current workflows and infrastructure. We agree on responsibilities and keep your engineers involved throughout implementation.",
+  },
+  {
+    question: "How long does a migration project take?",
+    answer:
+      "It depends on your infrastructure and the scope of the move. We assess complexity, dependencies, and business priorities before agreeing on a realistic timeline during the strategy phase.",
+  },
+  {
+    question: "Do you provide ongoing support?",
+    answer:
+      "Yes. Ongoing monitoring, optimization, and support can be scoped to your needs. We work with you to define the right level of support for your systems.",
+  },
+  {
+    question: "Can you train our team on DevOps practices?",
+    answer:
+      "Yes. We start by assessing your current infrastructure and processes to shape a DevOps adoption strategy, then provide training and ongoing support so your team can carry the practices forward themselves.",
+  },
+  {
+    question: "Can you help with security requirements?",
+    answer:
+      "We integrate security practices into infrastructure design and delivery — a DevSecOps approach, with security scanning, artifact management, and compliance checks built into your pipelines. During assessment, we review your requirements and plan the controls your environment needs.",
+  },
+];
 export default function FAQ() {
-    const faqs = [
-        {
-            question: "What specific cloud platforms do you work with?",
-            answer: "We specialize in AWS, Azure, and Google Cloud Platform (GCP). We also have extensive experience with hybrid and multi-cloud environments."
-        },
-        {
-            question: "Do you offer post-implementation support?",
-            answer: "Yes, we offer various support tiers including 24/7 monitoring, incident response, and regular infrastructure audits to ensure your systems remain healthy."
-        },
-        {
-            question: "How long does a typical migration project take?",
-            answer: "Timelines vary depending on complexity. A simple lift-and-shift might take 2-4 weeks, while a complete refactoring and modernization project can take 3-6 months. We provide detailed timelines during the strategy phase."
-        },
-        {
-            question: "Can you help with security compliance?",
-            answer: "Absolutely. We build infrastructure with security-first principles and can help you meet compliance standards such as SOC2, HIPAA, and GDPR."
-        }
-    ];
-
-    const [openIndex, setOpenIndex] = useState<number | null>(0);
-
-    return (
-        <section className="py-32">
-            <div className="container max-w-4xl">
-                <div className="mb-20 text-center">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6">Common Questions</h2>
-                </div>
-
-                <div className="border-t border-border">
-                    {faqs.map((faq, index) => (
-                        <div
-                            key={index}
-                            className="border-b border-border group"
-                        >
-                            <button
-                                className="flex items-center justify-between w-full py-8 text-left"
-                                onClick={() => setOpenIndex(index === openIndex ? null : index)}
-                            >
-                                <span className="text-xl md:text-2xl font-medium text-primary group-hover:text-accent transition-colors duration-300 pr-8">
-                                    {faq.question}
-                                </span>
-                                <span className={`flex-shrink-0 ml-4 transition-transform duration-300 ${index === openIndex ? "rotate-45" : "rotate-0"}`}>
-                                    <div className="w-8 h-8 rounded-full border border-secondary/30 flex items-center justify-center group-hover:border-accent group-hover:text-accent transition-colors">
-                                        <span className="text-2xl font-light leading-none relative top-[-2px]">+</span>
-                                    </div>
-                                </span>
-                            </button>
-                            <div
-                                className={`grid transition-all duration-500 ease-in-out ${index === openIndex ? "grid-rows-[1fr] opacity-100 mb-8" : "grid-rows-[0fr] opacity-0"
-                                    }`}
-                            >
-                                <div className="overflow-hidden">
-                                    <div className="text-lg text-secondary leading-relaxed max-w-2xl">
-                                        {faq.answer}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
+  return (
+    <section id="faq" className="section faq-section">
+      <div className="container faq-grid">
+        <div>
+          <span className="eyebrow">06 / A LITTLE MORE CLARITY</span>
+          <h2>
+            Good questions.
+            <br />
+            <span className="muted-heading">Straight answers.</span>
+          </h2>
+          <p className="section-description">
+            Have something else on your mind?
+            <br />
+            We’re always up for a conversation.
+          </p>
+          <a href="#contact" className="text-link">
+            Ask us anything <ArrowUpRight size={16} />
+          </a>
+        </div>
+        <div className="faq-list">
+          {faqs.map((faq, i) => (
+            <details key={faq.question} name="questions" open={i === 0}>
+              <summary>
+                {faq.question}
+                <Plus size={19} />
+              </summary>
+              <p>{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }

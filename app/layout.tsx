@@ -1,33 +1,54 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
+import { Barlow } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
 
-const outfit = Outfit({
+const barlow = Barlow({
   subsets: ["latin"],
-  variable: "--font-outfit",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-barlow",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "DevOps Solutions | Accelerate Your Growth",
+  title: "IGDISCO | Enjoy the night. We’ve got IT.",
   description:
-    "DevOps Solutions - Accelerate your software delivery with our expert DevOps services. Automate, scale, and innovate faster than ever.",
-  keywords: ["DevOps", "Software Delivery", "Cloud Computing", "Automation", "CI/CD", "Infrastructure as Code"],
-  authors: [{ name: "DevOps Solutions Team" }],
+    "DevOps, Infrastructure, Security, Cloud, and Operations. IGDISCO keeps the technical side in rhythm so you can focus on what matters.",
+  keywords: [
+    "DevOps",
+    "DevSecOps",
+    "Software Delivery",
+    "Cloud Computing",
+    "Cloud Migration",
+    "Automation",
+    "CI/CD",
+    "Infrastructure as Code",
+    "Kubernetes",
+    "Terraform",
+    "Ansible",
+    "Monitoring and Logging",
+    "Infrastructure Monitoring",
+    "Managed IT Services",
+    "AWS",
+    "Microsoft Azure",
+    "Huawei Cloud",
+  ],
+  authors: [{ name: "IGDISCO" }],
   metadataBase: new URL("https://igdisco.com"), // Replace with actual domain when deployed
   openGraph: {
-    title: "DevOps Solutions | Accelerate Your Growth",
-    description: "Accelerate your software delivery with our expert DevOps services.",
+    title: "IGDISCO | Enjoy the night. We’ve got IT.",
+    description:
+      "DevOps, cloud, Kubernetes, security, and 24/7 infrastructure operations from one connected team.",
     url: "https://igdisco.com",
-    siteName: "DevOps Solutions",
+    siteName: "IGDISCO",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "DevOps Solutions | Accelerate Your Growth",
-    description: "Accelerate your software delivery with our expert DevOps services.",
+    title: "IGDISCO | Enjoy the night. We’ve got IT.",
+    description:
+      "DevOps, cloud, Kubernetes, security, and 24/7 infrastructure operations from one connected team.",
   },
 };
 
@@ -38,7 +59,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={outfit.variable}>
+      <body className={barlow.variable}>
         <Providers>{children}</Providers>
       </body>
     </html>
