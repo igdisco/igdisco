@@ -1,56 +1,57 @@
+const steps = [
+  {
+    title: "Listen & assess",
+    text: "We get to know your infrastructure, your people, and what’s getting in the way.",
+    output: "A shared understanding",
+  },
+  {
+    title: "Map the way forward",
+    text: "Together, we define the architecture, priorities, and a practical plan for delivery.",
+    output: "A clear roadmap",
+  },
+  {
+    title: "Build & implement",
+    text: "We build, automate, and migrate with care, keeping your team involved along the way.",
+    output: "Systems that work for you",
+  },
+  {
+    title: "Support & evolve",
+    text: "We stay focused on system health, ongoing optimization, and your next challenge.",
+    output: "A long-term partnership",
+  },
+];
 export default function Process() {
-    const steps = [
-        {
-            number: "01",
-            title: "Assessment",
-            description: "We analyze your current infrastructure, workflows, and pain points to understand your needs."
-        },
-        {
-            number: "02",
-            title: "Strategy",
-            description: "We design a tailored roadmap and architecture that aligns with your business goals."
-        },
-        {
-            number: "03",
-            title: "Implementation",
-            description: "Our engineers build, automate, and migrate your systems using best practices."
-        },
-        {
-            number: "04",
-            title: "Support",
-            description: "We provide ongoing monitoring, optimization, and support to ensure sustained success."
-        }
-    ];
-
-    return (
-        <section className="py-32">
-            <div className="container">
-                <div className="mb-20">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6">How We Work</h2>
-                    <p className="text-secondary text-xl max-w-2xl">
-                        A streamlined workflow designed for transparency and speed.
-                    </p>
-                </div>
-
-                <div className="grid md:grid-cols-4 gap-x-8 gap-y-16 relative">
-                    {/* Subtle connecting line */}
-                    <div className="hidden md:block absolute top-[2.5rem] left-0 w-full h-px bg-border/50 -z-10" />
-
-                    {steps.map((step) => (
-                        <div key={step.number} className="relative pt-6">
-                            {/* Dot on the line */}
-                            <div className="hidden md:block absolute top-[2.25rem] left-0 w-3 h-3 rounded-full bg-primary ring-4 ring-bg-color" />
-
-                            <div className="text-6xl font-bold text-primary/10 mb-6 font-mono">
-                                {step.number}
-                            </div>
-
-                            <h3 className="text-2xl font-bold mb-4 text-primary">{step.title}</h3>
-                            <p className="text-secondary leading-relaxed">{step.description}</p>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
+  return (
+    <section id="process" className="section process-section">
+      <div className="container">
+        <div className="section-heading">
+          <div>
+            <span className="eyebrow">04 / OUR APPROACH</span>
+            <h2>
+              A clear process.
+              <br />
+              <span className="muted-heading">A team at every step.</span>
+            </h2>
+          </div>
+          <p>
+            No black boxes. Just thoughtful collaboration from the first
+            conversation to what comes next.
+          </p>
+        </div>
+        <div className="process-grid">
+          {steps.map((step, index) => (
+            <article key={step.title}>
+              <div className="step-track">
+                <span>0{index + 1}</span>
+                <i />
+              </div>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+              <span className="step-output">{step.output}</span>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
