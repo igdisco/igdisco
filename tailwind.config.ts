@@ -1,9 +1,9 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: ["selector", '[data-theme="dark"]'],
   content: [
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -18,9 +18,14 @@ const config: Config = {
         card: "var(--card-bg)",
         border: "var(--card-border)",
         accent: "var(--accent-color)",
+        "brand-blue": "#0C51A3",
+        "electric-cyan": "#00B3F0",
+        "disco-purple": "#662D91",
       },
       fontFamily: {
-        sans: ["Bahnschrift", "var(--font-barlow)", "sans-serif"],
+        headline: ["var(--font-space-grotesk)", "Space Grotesk", "sans-serif"],
+        body: ["var(--font-plus-jakarta)", "Plus Jakarta Sans", "sans-serif"],
+        sans: ["var(--font-plus-jakarta)", "Plus Jakarta Sans", "sans-serif"],
       },
     },
   },
