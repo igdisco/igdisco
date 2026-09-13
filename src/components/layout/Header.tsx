@@ -20,8 +20,9 @@ export default function Header() {
 
   return (
     <>
-      <header className="flex items-center justify-between border-b border-slate-200/80 dark:border-slate-800 px-6 lg:px-16 py-3.5 bg-white/85 dark:bg-slate-900/85 backdrop-blur-md fixed top-0 left-0 w-full z-50 transition-all duration-300 shadow-xs">
-        <div className="flex items-center gap-10">
+      <header className="border-b border-slate-200/80 dark:border-slate-800 bg-white/85 dark:bg-slate-900/85 backdrop-blur-md fixed top-0 left-0 w-full z-50 transition-all duration-300 shadow-xs px-6 lg:px-16">
+        <div className="max-w-7xl mx-auto py-3.5 flex items-center justify-between w-full">
+          <div className="flex items-center gap-10">
           <Brand />
           <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300" aria-label="Main navigation">
             <Link className="hover:text-brand-blue transition-colors" href="/products">
@@ -131,7 +132,7 @@ export default function Header() {
             {open ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
-
+        </div>
         {open && (
           <div className="lg:hidden absolute top-full left-0 right-0 bg-white/95 dark:bg-slate-900/95 border-b border-slate-200 dark:border-slate-800 p-6 flex flex-col shadow-xl backdrop-blur-xl z-50 overflow-y-auto max-h-[calc(100vh-65px)]">
             <Link href="/products" onClick={() => setOpen(false)} className="flex items-center justify-between text-base font-semibold text-slate-800 dark:text-slate-200 py-4 border-b border-slate-100 dark:border-slate-800/60 hover:text-brand-blue transition-colors">

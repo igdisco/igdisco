@@ -72,7 +72,7 @@ export default function Footer() {
           <div className="text-slate-500 dark:text-slate-500">
             © {new Date().getFullYear()} IGDISCO. All rights reserved.
           </div>
-          <div className="font-mono text-slate-500 dark:text-slate-500 text-[11px]">
+          <div className="font-mono text-slate-500 dark:text-slate-500 text-[11px] text-center">
             DevOps. Infrastructure. Security. Cloud. Operations.
           </div>
           <div className="flex gap-6 text-slate-500 dark:text-slate-400">
