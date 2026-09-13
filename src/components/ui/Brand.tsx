@@ -4,13 +4,13 @@ import Link from "next/link";
 export default function Brand({ showText = true }: { showText?: boolean }) {
   return (
     <Link href="/" className="flex items-center gap-0 sm:gap-1 group" aria-label="IGDISCO home">
-      <span className="relative inline-flex items-center justify-center overflow-hidden w-[52px] h-[52px] sm:w-[60px] sm:h-[60px] -translate-y-0.5 sm:-translate-y-[3px]">
+      <span className="relative inline-flex items-start justify-center overflow-hidden w-[52px] h-[36px] sm:w-[60px] sm:h-[42px] -translate-y-0.5 sm:-translate-y-[3px]">
         <Image
           src="/assets/images/logo-light.png"
           alt="IGDISCO"
           width={157}
           height={137}
-          className="brand-logo-light w-full h-full object-cover object-top transition-transform group-hover:scale-105"
+          className="brand-logo-light w-full h-auto object-contain object-top transition-transform group-hover:scale-105"
           priority
         />
         <Image
@@ -18,7 +18,7 @@ export default function Brand({ showText = true }: { showText?: boolean }) {
           alt="IGDISCO"
           width={157}
           height={137}
-          className="brand-logo-dark w-full h-full object-cover object-top transition-transform group-hover:scale-105"
+          className="brand-logo-dark w-full h-auto object-contain object-top transition-transform group-hover:scale-105"
           priority
         />
       </span>
