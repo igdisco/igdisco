@@ -402,15 +402,15 @@ h2 {
 }
 
 .brand-logo-dark {
-  display: none !important;
+  display: none;
 }
 
 [data-theme="dark"] .brand-logo-light {
-  display: none !important;
+  display: none;
 }
 
 [data-theme="dark"] .brand-logo-dark {
-  display: block !important;
+  display: block;
 }
 
 .menu-toggle {
@@ -2484,8 +2484,8 @@ fieldset:disabled {
   *,
   *::before,
   *::after {
-    animation: none !important;
-    transition: none !important;
+    animation: none;
+    transition: none;
   }
 
   .service-panel:hover,

@@ -1,3 +1,12 @@
+const CONTENT = {
+  label: "01 / THE MEANING BEHIND THE NAME",
+  title: "It all comes together.",
+  titleHighlight: "That’s D.I.S.C.O.",
+  description: "Five disciplines. One team looking after the technical side, so you can focus on your side of life.",
+  bottomText: "Your systems should work together. So should your IT partner.",
+  bottomLink: "Find your rhythm with us",
+};
+
 const pillars = [
   {
     letter: "D",
@@ -19,7 +28,7 @@ const pillars = [
       "Create consistent, version-controlled environments and dependable networks that grow with your business.",
     tags: ["Infrastructure as code", "Automation scripting", "Network architecture"],
     icon: "dns",
-    color: "text-[#008cb8]",
+    color: "text-brand-sky",
     bg: "bg-sky-50 dark:bg-sky-950/40",
     border: "border-sky-200 dark:border-sky-800",
   },
@@ -31,7 +40,7 @@ const pillars = [
       "Protect the systems you depend on with security scanning, artifact management, and compliance checks woven into your pipelines.",
     tags: ["DevSecOps", "Compliance checks", "Infrastructure protection"],
     icon: "shield_lock",
-    color: "text-[#662D91]",
+    color: "text-disco-purple",
     bg: "bg-purple-50 dark:bg-purple-950/40",
     border: "border-purple-200 dark:border-purple-800",
   },
@@ -43,7 +52,7 @@ const pillars = [
       "Move forward with a considered migration strategy, high-availability architecture, and cloud spend that stays under control.",
     tags: ["Cloud migration", "Disaster recovery", "Cost optimization"],
     icon: "cloud",
-    color: "text-[#008cb8]",
+    color: "text-brand-sky",
     bg: "bg-sky-50 dark:bg-sky-950/40",
     border: "border-sky-200 dark:border-sky-800",
   },
@@ -66,16 +75,16 @@ export default function Services() {
     <section className="py-20 sm:py-24 px-6 lg:px-16 max-w-7xl mx-auto w-full" id="disco-framework">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
         <div className="space-y-3">
-          <p className="text-xs font-mono font-bold tracking-widest text-[#008cb8] uppercase">
-            01 / THE MEANING BEHIND THE NAME
+          <p className="text-xs font-mono font-bold tracking-widest text-brand-sky uppercase">
+            {CONTENT.label}
           </p>
           <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            It all comes together.<br />
-            <span className="disco-text">That’s D.I.S.C.O.</span>
+            {CONTENT.title}<br />
+            <span className="disco-text">{CONTENT.titleHighlight}</span>
           </h2>
         </div>
         <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-md leading-relaxed">
-          Five disciplines. One team looking after the technical side, so you can focus on your side of life.
+          {CONTENT.description}
         </p>
       </div>
 
@@ -145,8 +154,8 @@ export default function Services() {
           className="inline-flex flex-wrap items-center justify-center gap-1.5 text-sm font-headline font-semibold text-slate-700 dark:text-slate-300 hover:text-brand-blue transition-colors"
           href="#consultation"
         >
-          <span>Your systems should work together. So should your IT partner.</span>
-          <span className="text-brand-blue underline">Find your rhythm with us</span>
+          <span>{CONTENT.bottomText}</span>
+          <span className="text-brand-blue underline">{CONTENT.bottomLink}</span>
           <span className="material-symbols-outlined text-base text-brand-blue">north_east</span>
         </a>
       </div>

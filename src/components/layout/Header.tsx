@@ -23,10 +23,10 @@ export default function Header() {
       <div className="flex items-center gap-10">
         <Brand />
         <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300" aria-label="Main navigation">
-          <Link className="hover:text-brand-blue transition-colors" href="/#catalog">
+          <Link className="hover:text-brand-blue transition-colors" href="/products">
             Products
           </Link>
-          <Link className="hover:text-brand-blue transition-colors" href="/#catalog">
+          <Link className="hover:text-brand-blue transition-colors" href="/services">
             Services
           </Link>
           <div className="relative group py-2">
@@ -34,7 +34,7 @@ export default function Header() {
               className="flex items-center gap-1 hover:text-brand-blue transition-colors focus:outline-none"
               type="button"
             >
-              <span>Use cases</span>
+              <span>D.I.S.C.O.</span>
               <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:rotate-180 text-slate-400">
                 expand_more
               </span>
@@ -42,37 +42,37 @@ export default function Header() {
             <div className="absolute left-0 top-full hidden group-hover:block group-focus-within:block w-56 p-2 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl backdrop-blur-xl transition-all duration-200 z-50">
               <Link
                 className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs text-slate-700 dark:text-slate-200 hover:text-brand-blue hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
-                href="/#disco-framework"
+                href="/devops"
               >
                 <span className="material-symbols-outlined text-brand-blue text-base">all_inclusive</span> DevOps
               </Link>
               <Link
                 className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs text-slate-700 dark:text-slate-200 hover:text-brand-blue hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
-                href="/#disco-framework"
+                href="/infrastructure"
               >
                 <span className="material-symbols-outlined text-[#008cb8] text-base">dns</span> Infrastructure
               </Link>
               <Link
                 className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs text-slate-700 dark:text-slate-200 hover:text-brand-blue hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
-                href="/#disco-framework"
+                href="/security"
               >
                 <span className="material-symbols-outlined text-[#662D91] text-base">shield</span> Security
               </Link>
               <Link
                 className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs text-slate-700 dark:text-slate-200 hover:text-brand-blue hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
-                href="/#disco-framework"
+                href="/cloud"
               >
                 <span className="material-symbols-outlined text-[#008cb8] text-base">cloud</span> Cloud
               </Link>
               <Link
                 className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs text-slate-700 dark:text-slate-200 hover:text-brand-blue hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
-                href="/#disco-framework"
+                href="/operations"
               >
                 <span className="material-symbols-outlined text-brand-blue text-base">tune</span> Operations
               </Link>
             </div>
           </div>
-          <Link className="hover:text-brand-blue transition-colors" href="/#consultation">
+          <Link className="hover:text-brand-blue transition-colors" href="/pricing">
             Pricing
           </Link>
           <div className="relative group py-2">
@@ -88,19 +88,19 @@ export default function Header() {
             <div className="absolute left-0 top-full hidden group-hover:block group-focus-within:block w-48 p-2 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl backdrop-blur-xl transition-all duration-200 z-50">
               <Link
                 className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs text-slate-700 dark:text-slate-200 hover:text-brand-blue hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
-                href="/#why-igdisco"
+                href="/about"
               >
                 <span className="material-symbols-outlined text-[#008cb8] text-base">info</span> About
               </Link>
               <Link
                 className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs text-slate-700 dark:text-slate-200 hover:text-brand-blue hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
-                href="/#faqs"
+                href="/blog"
               >
                 <span className="material-symbols-outlined text-brand-blue text-base">article</span> Blog
               </Link>
               <Link
                 className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs text-slate-700 dark:text-slate-200 hover:text-brand-blue hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
-                href="/#why-igdisco"
+                href="/careers"
               >
                 <span className="material-symbols-outlined text-[#662D91] text-base">group</span> Careers
               </Link>
@@ -113,7 +113,7 @@ export default function Header() {
         <ThemeToggle />
         <Link
           className="glow-btn inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#0c51a3] via-[#008cb8] to-[#662D91] px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-headline font-bold text-white shadow-md shadow-blue-900/15 transition-all hover:brightness-105 hover:shadow-lg"
-          href="/#consultation"
+          href="/consultation"
         >
           <span className="material-symbols-outlined text-base sm:text-lg shrink-0">rocket_launch</span>
           <span className="flex flex-col text-left leading-tight">
@@ -132,28 +132,106 @@ export default function Header() {
       </div>
 
       {open && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white/95 dark:bg-slate-900/95 border-b border-slate-200 dark:border-slate-800 p-6 flex flex-col gap-4 shadow-xl backdrop-blur-xl z-50">
-          <Link href="/#catalog" onClick={() => setOpen(false)} className="text-sm font-medium text-slate-700 dark:text-slate-200 py-1">
+        <div className="lg:hidden absolute top-full left-0 right-0 bg-white/95 dark:bg-slate-900/95 border-b border-slate-200 dark:border-slate-800 p-6 flex flex-col shadow-xl backdrop-blur-xl z-50 overflow-y-auto max-h-[calc(100vh-80px)]">
+          <Link href="/products" onClick={() => setOpen(false)} className="flex items-center justify-between text-base font-semibold text-slate-800 dark:text-slate-200 py-4 border-b border-slate-100 dark:border-slate-800/60 hover:text-brand-blue transition-colors">
             Products
           </Link>
-          <Link href="/#catalog" onClick={() => setOpen(false)} className="text-sm font-medium text-slate-700 dark:text-slate-200 py-1">
+
+          <Link href="/services" onClick={() => setOpen(false)} className="flex items-center justify-between text-base font-semibold text-slate-800 dark:text-slate-200 py-4 border-b border-slate-100 dark:border-slate-800/60 hover:text-brand-blue transition-colors">
             Services
           </Link>
-          <Link href="/#disco-framework" onClick={() => setOpen(false)} className="text-sm font-medium text-slate-700 dark:text-slate-200 py-1">
-            D.I.S.C.O. Framework
+
+          <details className="group">
+            <summary className="flex items-center justify-between text-base font-semibold text-slate-800 dark:text-slate-200 py-4 border-b border-slate-100 dark:border-slate-800/60 hover:text-brand-blue transition-colors cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+              <span>D.I.S.C.O.</span>
+              <span className="material-symbols-outlined text-xl text-slate-400 transition-transform duration-300 group-open:rotate-180">
+                expand_more
+              </span>
+            </summary>
+            <div className="flex flex-col gap-1 py-3 px-2 bg-slate-50/50 dark:bg-slate-800/20 border-b border-slate-100 dark:border-slate-800/60">
+              <Link
+                className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-blue hover:bg-white dark:hover:bg-slate-800 transition-all"
+                href="/devops"
+                onClick={() => setOpen(false)}
+              >
+                <span className="material-symbols-outlined text-brand-blue text-base shrink-0">all_inclusive</span> DevOps
+              </Link>
+              <Link
+                className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-blue hover:bg-white dark:hover:bg-slate-800 transition-all"
+                href="/infrastructure"
+                onClick={() => setOpen(false)}
+              >
+                <span className="material-symbols-outlined text-[#008cb8] text-base shrink-0">dns</span> Infrastructure
+              </Link>
+              <Link
+                className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-blue hover:bg-white dark:hover:bg-slate-800 transition-all"
+                href="/security"
+                onClick={() => setOpen(false)}
+              >
+                <span className="material-symbols-outlined text-[#662D91] text-base shrink-0">shield</span> Security
+              </Link>
+              <Link
+                className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-blue hover:bg-white dark:hover:bg-slate-800 transition-all"
+                href="/cloud"
+                onClick={() => setOpen(false)}
+              >
+                <span className="material-symbols-outlined text-[#008cb8] text-base shrink-0">cloud</span> Cloud
+              </Link>
+              <Link
+                className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-blue hover:bg-white dark:hover:bg-slate-800 transition-all"
+                href="/operations"
+                onClick={() => setOpen(false)}
+              >
+                <span className="material-symbols-outlined text-brand-blue text-base shrink-0">tune</span> Operations
+              </Link>
+            </div>
+          </details>
+
+          <Link href="/pricing" onClick={() => setOpen(false)} className="flex items-center justify-between text-base font-semibold text-slate-800 dark:text-slate-200 py-4 border-b border-slate-100 dark:border-slate-800/60 hover:text-brand-blue transition-colors">
+            Pricing
           </Link>
-          <Link href="/#why-igdisco" onClick={() => setOpen(false)} className="text-sm font-medium text-slate-700 dark:text-slate-200 py-1">
-            About & Careers
-          </Link>
-          <Link href="/#faqs" onClick={() => setOpen(false)} className="text-sm font-medium text-slate-700 dark:text-slate-200 py-1">
+
+          <details className="group">
+            <summary className="flex items-center justify-between text-base font-semibold text-slate-800 dark:text-slate-200 py-4 border-b border-slate-100 dark:border-slate-800/60 hover:text-brand-blue transition-colors cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+              <span>Resources</span>
+              <span className="material-symbols-outlined text-xl text-slate-400 transition-transform duration-300 group-open:rotate-180">
+                expand_more
+              </span>
+            </summary>
+            <div className="flex flex-col gap-1 py-3 px-2 bg-slate-50/50 dark:bg-slate-800/20 border-b border-slate-100 dark:border-slate-800/60">
+              <Link
+                className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-blue hover:bg-white dark:hover:bg-slate-800 transition-all"
+                href="/about"
+                onClick={() => setOpen(false)}
+              >
+                <span className="material-symbols-outlined text-[#008cb8] text-base shrink-0">info</span> About
+              </Link>
+              <Link
+                className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-blue hover:bg-white dark:hover:bg-slate-800 transition-all"
+                href="/blog"
+                onClick={() => setOpen(false)}
+              >
+                <span className="material-symbols-outlined text-brand-blue text-base shrink-0">article</span> Blog
+              </Link>
+              <Link
+                className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-blue hover:bg-white dark:hover:bg-slate-800 transition-all"
+                href="/careers"
+                onClick={() => setOpen(false)}
+              >
+                <span className="material-symbols-outlined text-[#662D91] text-base shrink-0">group</span> Careers
+              </Link>
+            </div>
+          </details>
+
+          <Link href="/faqs" onClick={() => setOpen(false)} className="flex items-center justify-between text-base font-semibold text-slate-800 dark:text-slate-200 py-4 border-b border-slate-100 dark:border-slate-800/60 hover:text-brand-blue transition-colors">
             FAQs
           </Link>
-          <Link href="/#consultation" onClick={() => setOpen(false)} className="text-sm font-bold text-brand-blue py-1">
-            Book Consultation →
+
+          <Link href="/consultation" onClick={() => setOpen(false)} className="flex items-center justify-between text-base font-bold text-brand-blue py-4 pt-6">
+            Book Consultation <span className="material-symbols-outlined text-xl">arrow_forward</span>
           </Link>
         </div>
       )}
     </header>
   );
 }
-

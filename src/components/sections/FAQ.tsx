@@ -41,6 +41,14 @@ const faqs = [
   },
 ];
 
+const CONTENT = {
+  label: "05 / A LITTLE MORE CLARITY",
+  title: "Good questions.",
+  titleHighlight: "Straight answers.",
+  description: "Have something else on your mind? We're always up for a conversation.",
+  linkText: "Ask us anything",
+};
+
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
@@ -49,22 +57,22 @@ export default function FAQ() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         {/* Left Header */}
         <div className="lg:col-span-5 space-y-4">
-          <p className="text-xs font-mono font-bold tracking-widest text-[#008cb8] uppercase">
-            06 / A LITTLE MORE CLARITY
+          <p className="text-xs font-mono font-bold tracking-widest text-brand-sky uppercase">
+            {CONTENT.label}
           </p>
           <h2 className="font-headline text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Good questions.<br />
-            <span className="text-slate-400 dark:text-slate-500">Straight answers.</span>
+            {CONTENT.title}<br />
+            <span className="text-slate-400 dark:text-slate-500">{CONTENT.titleHighlight}</span>
           </h2>
           <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Have something else on your mind? We&apos;re always up for a conversation.
+            {CONTENT.description}
           </p>
           <div className="pt-2">
             <Link
               className="inline-flex items-center gap-1.5 text-sm font-headline font-bold text-brand-blue hover:underline"
               href="/#consultation"
             >
-              <span>Ask us anything</span>
+              <span>{CONTENT.linkText}</span>
               <span className="material-symbols-outlined text-base">north_east</span>
             </Link>
           </div>
@@ -77,11 +85,10 @@ export default function FAQ() {
             return (
               <div
                 key={faq.question}
-                className={`rounded-2xl bg-white dark:bg-slate-900 border transition-colors shadow-xs p-5 ${
-                  isOpen
+                className={`rounded-2xl bg-white dark:bg-slate-900 border transition-colors shadow-xs p-5 ${isOpen
                     ? "border-blue-300 dark:border-blue-700"
                     : "border-slate-200 dark:border-slate-800"
-                }`}
+                  }`}
               >
                 <button
                   type="button"
@@ -91,9 +98,8 @@ export default function FAQ() {
                 >
                   <span>{faq.question}</span>
                   <span
-                    className={`material-symbols-outlined text-lg transition-transform ${
-                      isOpen ? "text-brand-blue" : "text-slate-400"
-                    }`}
+                    className={`material-symbols-outlined text-lg transition-transform ${isOpen ? "text-brand-blue" : "text-slate-400"
+                      }`}
                   >
                     {isOpen ? "close" : "add"}
                   </span>
@@ -111,4 +117,3 @@ export default function FAQ() {
     </section>
   );
 }
-

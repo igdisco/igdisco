@@ -3,6 +3,22 @@
 import { useState, type FormEvent } from "react";
 import Link from "next/link";
 
+const CONTENT = {
+  label: "06 / LET'S BUILD WHAT'S NEXT",
+  titlePart1: "Keep your business",
+  titlePart2: "in rhythm.",
+  titleHighlight: "Let's talk IT.",
+  description: "Tell us where you are and where you want to go. We'll work out the next step together.",
+  points: [
+    "A conversation with our engineers",
+    "Advice grounded in your business",
+    "A clear path forward"
+  ],
+  footer: "YOU ENJOY THE NIGHT. WE TAKE CARE OF IT.",
+  formTitle: "Let's hear what you're building.",
+  formSubtitle: "A few details to get us started.",
+};
+
 export default function Contact() {
   const [state, setState] = useState<"idle" | "sending" | "success" | "error">("idle");
 
@@ -30,35 +46,29 @@ export default function Contact() {
         {/* Left Info & Value Props */}
         <div className="lg:col-span-6 space-y-8">
           <div className="space-y-3">
-            <p className="text-xs font-mono font-bold tracking-widest text-[#008cb8] uppercase">
-              07 / LET&apos;S BUILD WHAT&apos;S NEXT
+            <p className="text-xs font-mono font-bold tracking-widest text-brand-sky uppercase">
+              {CONTENT.label}
             </p>
             <h2 className="font-headline text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
-              Keep your business<br />
-              in rhythm.<br />
-              <span className="text-brand-blue">Let&apos;s talk IT.</span>
+              {CONTENT.titlePart1}<br />
+              {CONTENT.titlePart2}<br />
+              <span className="text-brand-blue">{CONTENT.titleHighlight}</span>
             </h2>
           </div>
           <p className="text-base text-slate-600 dark:text-slate-400 leading-relaxed max-w-lg">
-            Tell us where you are and where you want to go. We&apos;ll work out the next step together.
+            {CONTENT.description}
           </p>
           <div className="space-y-3.5 text-sm text-slate-700 dark:text-slate-300">
-            <div className="flex items-center gap-3">
-              <span className="material-symbols-outlined text-brand-blue text-lg">check_circle</span>
-              <span className="font-medium">A conversation with our engineers</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <span className="material-symbols-outlined text-brand-blue text-lg">check_circle</span>
-              <span className="font-medium">Advice grounded in your business</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <span className="material-symbols-outlined text-brand-blue text-lg">check_circle</span>
-              <span className="font-medium">A clear path forward</span>
-            </div>
+            {CONTENT.points.map(point => (
+              <div key={point} className="flex items-center gap-3">
+                <span className="material-symbols-outlined text-brand-blue text-lg">check_circle</span>
+                <span className="font-medium">{point}</span>
+              </div>
+            ))}
           </div>
           <div className="pt-6 border-t border-slate-200 dark:border-slate-800">
             <p className="text-xs font-mono tracking-widest text-slate-500 dark:text-slate-400 uppercase font-bold">
-              YOU ENJOY THE NIGHT. WE TAKE CARE OF IT.
+              {CONTENT.footer}
             </p>
           </div>
         </div>
@@ -67,10 +77,10 @@ export default function Contact() {
         <div className="lg:col-span-6" id="contact">
           <div className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl backdrop-blur-xl">
             <h3 className="font-headline text-2xl font-bold text-slate-900 dark:text-white mb-1">
-              Let&apos;s hear what you&apos;re building.
+              {CONTENT.formTitle}
             </h3>
             <p className="text-xs text-slate-500 dark:text-slate-400 mb-6">
-              A few details to get us started.
+              {CONTENT.formSubtitle}
             </p>
             <form onSubmit={handleSubmit} className="space-y-4">
               <fieldset disabled={state === "sending"} className="space-y-4">
@@ -148,7 +158,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={state === "sending"}
-                  className="glow-btn w-full py-3.5 rounded-xl bg-gradient-to-r from-[#0C51A3] to-[#008cb8] hover:brightness-105 text-white font-headline font-bold text-sm tracking-wide flex items-center justify-center gap-2 shadow-lg shadow-blue-600/25 transition-all"
+                  className="glow-btn w-full py-3.5 rounded-xl bg-gradient-to-r from-brand-blue to-brand-sky hover:brightness-105 text-white font-headline font-bold text-sm tracking-wide flex items-center justify-center gap-2 shadow-lg shadow-blue-600/25 transition-all"
                 >
                   <span>
                     {state === "sending"
@@ -169,7 +179,7 @@ export default function Contact() {
 
                 {state === "success" && (
                   <p className="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-200 text-xs text-center font-medium">
-                    Thank you! A principal engineer from IG DISCO will reach out to confirm a time.
+                    Thank you! A principal engineer from IGDISCO will reach out to confirm a time.
                   </p>
                 )}
                 {state === "error" && (

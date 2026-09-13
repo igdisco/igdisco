@@ -3,8 +3,8 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-    title: "Privacy Policy | IGDisco",
-    description: "Privacy Policy for IGDisco DevOps Solutions. Learn how we collect, use, and protect your personal information.",
+    title: "Privacy Policy | IGDISCO",
+    description: "Privacy Policy for IGDISCO DevOps Solutions. Learn how we collect, use, and protect your personal information.",
 };
 
 export default function PrivacyPolicy() {
@@ -17,7 +17,7 @@ export default function PrivacyPolicy() {
                         Privacy Policy
                     </h1>
                     <p className="text-secondary text-lg mb-12">
-                        Last updated: December 31, 2025
+                        Last updated: 09 September 2026
                     </p>
 
                     <div className="prose prose-lg max-w-none space-y-8">
@@ -26,13 +26,21 @@ export default function PrivacyPolicy() {
                                 1. Introduction
                             </h2>
                             <p className="text-secondary leading-relaxed mb-4">
-                                IGDisco (&quot;we&quot;, &quot;our&quot;, &quot;us&quot;) is committed to protecting your privacy. This Privacy
-                                Policy explains how we collect, use, disclose, and safeguard your information when you
-                                visit our website and use our services.
+                                IGDISCO Co., Ltd. (&quot;we&quot;, &quot;our&quot;, &quot;us&quot;), is committed to protecting your privacy. This Privacy
+                                Policy explains how we collect, use, disclose, and safeguard your information when you visit our
+                                website at www.igdisco.com (the &quot;Website&quot;).
+                            </p>
+                            <p className="text-secondary leading-relaxed mb-4">
+                                <strong>Scope of this Policy.</strong> This Privacy Policy applies only to your access to and use of the Website.
+                                It does not apply to information we process when delivering professional or managed IT services
+                                to our clients. Where we handle data in the course of an engagement &mdash; whether as a service
+                                provider, processor, or otherwise &mdash; that handling is governed by the service agreement,
+                                statement of work, or data processing terms agreed with the client concerned, and those terms
+                                prevail over this Policy. This Policy also does not apply to third-party websites that we link to.
                             </p>
                             <p className="text-secondary leading-relaxed">
-                                Please read this privacy policy carefully. If you do not agree with the terms of this
-                                privacy policy, please do not access the site or use our services.
+                                Please read this Privacy Policy carefully. If you do not agree with its terms, please do not access
+                                the Website.
                             </p>
                         </section>
 
@@ -46,30 +54,32 @@ export default function PrivacyPolicy() {
                             </p>
 
                             <h3 className="text-xl font-bold mb-3 text-text-primary">
-                                Personal Data
+                                Information You Provide to Us
                             </h3>
                             <p className="text-secondary leading-relaxed mb-4">
-                                Personally identifiable information, such as your name, email address, phone number,
-                                and company information, that you voluntarily give to us when you register with the
-                                Service or when you choose to participate in various activities related to the Service.
+                                Information you voluntarily submit when you contact us through the Website, including through
+                                a contact or inquiry form, a request for a quotation or proposal, a subscription to our updates, or
+                                a job application. This may include your name, business email address, telephone number,
+                                company name, job title, the content of your message, and &mdash; where you apply for a role with us
+                                &mdash; your curriculum vitae and the supporting information you choose to include in it.
                             </p>
 
                             <h3 className="text-xl font-bold mb-3 text-text-primary">
                                 Derivative Data
                             </h3>
                             <p className="text-secondary leading-relaxed mb-4">
-                                Information our servers automatically collect when you access the Service, such as your
-                                IP address, browser type, operating system, access times, and the pages you have viewed
-                                directly before and after accessing the Service.
+                                Information our servers and analytics tools automatically collect when you access the Website,
+                                such as your IP address, browser type and version, operating system, device type, access times,
+                                the pages you view, and the page you visited immediately before arriving at the Website. This
+                                information is collected in aggregate and is not ordinarily used to identify you personally.
                             </p>
 
                             <h3 className="text-xl font-bold mb-3 text-text-primary">
-                                Financial Data
+                                Information We Do Not Collect
                             </h3>
                             <p className="text-secondary leading-relaxed">
-                                Financial information, such as data related to your payment method (e.g., valid credit
-                                card number, card brand, expiration date) that we may collect when you purchase,
-                                order, return, exchange, or request information about our services.
+                                We do not sell products or accept payment through the Website. We therefore do not collect
+                                credit card numbers, bank details, or other payment information through the Website.
                             </p>
                         </section>
 

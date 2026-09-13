@@ -11,6 +11,15 @@ import {
 import { ArrowUpRight } from "lucide-react";
 import styles from "./Capabilities.module.css";
 
+const CONTENT = {
+  label: "02 / WHAT WE DELIVER",
+  title: "The full catalog.",
+  titleSubtitle: "In practical terms.",
+  description: "From the first pipeline to the last dashboard — here is the work itself, and the tools we do it with.",
+  footerText: "Need something that isn't on the list? It's usually still a conversation worth having.",
+  footerLinkText: "Ask about your setup",
+};
+
 const capabilities = [
   {
     Icon: Workflow,
@@ -107,19 +116,19 @@ const capabilities = [
 
 export default function Capabilities() {
   return (
-    <section className={styles.section} id="catalog">
-      <div className={styles.header}>
-        <div>
-          <p className={styles.eyebrow}>
-            02 / WHAT WE DELIVER
+    <section className="py-20 sm:py-24 px-6 lg:px-16 max-w-7xl mx-auto w-full border-t border-slate-200 dark:border-slate-800" id="catalog">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+        <div className="space-y-3">
+          <p className="text-xs font-mono font-bold tracking-widest text-brand-sky uppercase">
+            {CONTENT.label}
           </p>
-          <h2 className={styles.title}>
-            The full catalog.<br />
-            <span className={styles.titleSubtitle}>In practical terms.</span>
+          <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            {CONTENT.title}<br />
+            <span className="text-slate-400 dark:text-slate-500">{CONTENT.titleSubtitle}</span>
           </h2>
         </div>
-        <p className={styles.description}>
-          From the first pipeline to the last dashboard — here is the work itself, and the tools we do it with.
+        <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-md leading-relaxed">
+          {CONTENT.description}
         </p>
       </div>
 
@@ -161,8 +170,8 @@ export default function Capabilities() {
       {/* Bottom catalog prompt */}
       <div className={styles.footer}>
         <a className={styles.footerLink} href="#consultation">
-          <span>Need something that isn&apos;t on the list? It&apos;s usually still a conversation worth having.</span>
-          <span className={styles.footerLinkAccent}>Ask about your setup</span>
+          <span>{CONTENT.footerText}</span>
+          <span className={styles.footerLinkAccent}>{CONTENT.footerLinkText}</span>
           <ArrowUpRight size={16} className={styles.footerLinkIcon} />
         </a>
       </div>

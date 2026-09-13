@@ -1,8 +1,7 @@
-// import { ArrowDown, ArrowUpRight } from "lucide-react";
-import HeroLogo from "../graphics/HeroLogo";
-import styles from "./Hero.module.css";
+import HeroLogo from "@/components/ui/HeroLogo";
 import Link from "next/link";
 import Image from "next/image";
+import styles from "./Hero.module.css";
 
 export default function Hero() {
   return (

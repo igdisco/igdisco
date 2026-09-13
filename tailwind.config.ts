@@ -21,6 +21,7 @@ const config: Config = {
         "brand-blue": "#0C51A3",
         "electric-cyan": "#00B3F0",
         "disco-purple": "#662D91",
+        "brand-sky": "#008cb8",
       },
       fontFamily: {
         headline: ["var(--font-space-grotesk)", "Space Grotesk", "sans-serif"],

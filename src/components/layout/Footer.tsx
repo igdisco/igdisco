@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="md:col-span-6 space-y-4">
             <Brand />
             <p className="text-slate-600 dark:text-slate-400 text-sm max-w-sm leading-relaxed">
-              Enjoy the night. Partner with IG DISCO and hand over deployment headaches,
+              Enjoy the night. Partner with IGDISCO and hand over deployment headaches,
               patch management, and midnight outages to specialized engineers.
             </p>
             <div className="font-semibold text-slate-900 dark:text-slate-200">

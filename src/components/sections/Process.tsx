@@ -10,18 +10,18 @@ const steps = [
   },
   {
     num: "02",
-    numBg: "bg-sky-50 dark:bg-sky-950/40 text-[#008cb8] border-sky-100 dark:border-sky-900",
-    hoverBorder: "hover:border-[#008cb8]/50",
-    accentColor: "text-[#008cb8]",
+    numBg: "bg-sky-50 dark:bg-sky-950/40 text-brand-sky border-sky-100 dark:border-sky-900",
+    hoverBorder: "hover:border-brand-sky/50",
+    accentColor: "text-brand-sky",
     title: "Map the way forward",
     text: "Together, we define the architecture, priorities, and a practical plan for delivery.",
     output: "A clear roadmap",
   },
   {
     num: "03",
-    numBg: "bg-purple-50 dark:bg-purple-950/40 text-[#662D91] border-purple-100 dark:border-purple-900",
-    hoverBorder: "hover:border-[#662D91]/50",
-    accentColor: "text-[#662D91]",
+    numBg: "bg-purple-50 dark:bg-purple-950/40 text-disco-purple border-purple-100 dark:border-purple-900",
+    hoverBorder: "hover:border-disco-purple/50",
+    accentColor: "text-disco-purple",
     title: "Build & implement",
     text: "We build, automate, and migrate with care, keeping your team involved along the way.",
     output: "Systems that work for you",
@@ -37,21 +37,28 @@ const steps = [
   },
 ];
 
+const CONTENT = {
+  label: "04 / OUR APPROACH",
+  title: "A clear process.",
+  titleHighlight: "A team at every step.",
+  description: "No black boxes. Just thoughtful collaboration from the first conversation to what comes next.",
+};
+
 export default function Process() {
   return (
     <section className="py-20 sm:py-24 px-6 lg:px-16 max-w-7xl mx-auto w-full border-t border-slate-200 dark:border-slate-800" id="approach">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
         <div className="space-y-3">
-          <p className="text-xs font-mono font-bold tracking-widest text-[#008cb8] uppercase">
-            04 / OUR APPROACH
+          <p className="text-xs font-mono font-bold tracking-widest text-brand-sky uppercase">
+            {CONTENT.label}
           </p>
           <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            A clear process.<br />
-            <span className="text-slate-400 dark:text-slate-500">A team at every step.</span>
+            {CONTENT.title}<br />
+            <span className="text-slate-400 dark:text-slate-500">{CONTENT.titleHighlight}</span>
           </h2>
         </div>
         <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-md leading-relaxed">
-          No black boxes. Just thoughtful collaboration from the first conversation to what comes next.
+          {CONTENT.description}
         </p>
       </div>
 
